@@ -1,0 +1,6 @@
+# Ignore build outputs
+fileinspector
+build/
+*.o
+*.out
+*.log
