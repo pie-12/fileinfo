@@ -1,48 +1,84 @@
-# File Inspector (GTK Version)
+# File Inspector
 
-Một chương trình **C/GTK3** đơn giản cho **Linux** để xem thông tin chi tiết của tệp hoặc thư mục.
+## Overview
 
-## Yêu cầu hệ thống
+File Inspector is a simple graphical utility written in C using the GTK3 toolkit. It allows users to inspect files and directories, displaying detailed information such as file name, type, size, permissions, owner, group, last modification time, and full path. The application supports scanning individual files or recursively scanning entire directories.
 
-- Hệ điều hành: Debian/Ubuntu (hoặc dẫn xuất)
-- Trình biên dịch: `gcc` (thuộc `build-essential`)
-- Công cụ & thư viện: `pkg-config`, `libgtk-3-dev`
+## Features
 
-Cài đặt nhanh các gói cần thiết:
+-   **File and Directory Scanning**: Inspect details of a single file or recursively scan an entire directory.
+-   **Detailed File Information**: Displays the following attributes for each entry:
+    -   **Name**: The name of the file or directory.
+    -   **Type**: File type (e.g., Regular file, Directory, Symbolic link).
+    -   **Size**: Size in bytes.
+    -   **Permissions**: Octal and symbolic representation (e.g., `drwxr-xr-x`).
+    -   **Owner**: User owner.
+    -   **Group**: Group owner.
+    -   **MTime**: Last modification timestamp.
+    -   **Path**: Full path to the file or directory.
+-   **Recursive Scan Option**: A checkbox to toggle recursive scanning for directories.
+-   **User-friendly Interface**: Built with GTK3 for a native look and feel.
+
+## Technologies Used
+
+-   **C Language**: The core logic of the application.
+-   **GTK3**: A cross-platform widget toolkit for creating graphical user interfaces.
+
+## Building the Application
+
+To build File Inspector, you need to have a C compiler (like GCC) and the GTK3 development libraries installed on your system.
+
+### Prerequisites
+
+On Debian/Ubuntu-based systems:
+
+```bash
+sudo apt update
+sudo apt install build-essential libgtk-3-dev
 ```
-    sudo apt update
-    sudo apt install build-essential pkg-config libgtk-3-dev
+
+On Fedora/RHEL-based systems:
+
+```bash
+sudo dnf install gcc gtk3-devel
 ```
 
-## Biên dịch và Chạy
+For other systems, please refer to the GTK3 documentation for installation instructions.
 
-1) Clone mã nguồn
+### Compilation
+
+Navigate to the project root directory and run `make`:
+
+```bash
+make
 ```
-    git clone https://github.com/kiet293/fileinfo.git
+
+This will compile the source files and create an executable named `fileinspector` in the root directory.
+
+## Running the Application
+
+After successful compilation, you can run the application from the project root:
+
+```bash
+./fileinspector
 ```
 
-2) Di chuyển vào thư mục dự án
-```
-    cd fileinfo
-```
-3) Biên dịch
-```
-    make
-```
-4) Chạy ứng dụng
-```
-    ./fileinspector
-```
-> Lưu ý: Dự án sử dụng `Makefile`, vì vậy chỉ cần `make` để biên dịch trên hệ thống đã cài đủ phụ thuộc.
+## Usage
 
+1.  **Launch the application**: Execute `./fileinspector`.
+2.  **Enter a path**: In the text entry field, type the path to a file or directory you wish to inspect, or click the "Chọn thư mục…" (Choose folder…) button to browse for a directory.
+3.  **Recursive Scan**: Check the "Đệ quy" (Recursive) checkbox if you want to scan all subdirectories within a chosen directory.
+4.  **Scan**: Click the "Quét" (Scan) button to initiate the scan.
+5.  **View Results**: The results will be displayed in the table, showing detailed information for each file and directory found. The status bar at the bottom will provide feedback on the scan process.
 
-## Dọn dẹp
+## Screenshots
 
-Xoá các tệp sinh ra khi biên dịch:
+*(Currently, no screenshots are available. You might want to add some here to showcase the application's interface.)*
 
-    make clean
+## Contributing
 
+Feel free to fork the repository, open issues, or submit pull requests.
 
-## Góp ý & Báo lỗi
+## License
 
-Nếu gặp lỗi hoặc có đề xuất tính năng, vui lòng mở **Issue** trên GitHub của dự án.
+This project is licensed under the MIT License. See the `LICENSE` file (if present) for details.
